@@ -1,8 +1,31 @@
 {
   "feed": "ot",
   "title": "OT / IoT / IIoT",
-  "generated_at": "2026-10-05T05:22:12Z",
+  "generated_at": "2026-10-05T05:38:56.323Z",
   "items": [
+    {
+      "id": "ot-2026-10-04-ukraine-substations-occupied-territories",
+      "published_at": "2026-10-04T12:00:00Z",
+      "time_precision": "date",
+      "status": "CONTEXTO OT",
+      "sector": "Energía / Subestaciones",
+      "region": "Donetsk, Zaporizhzhia, Kherson y Crimea ocupadas",
+      "title": "Fuerzas ucranianas reportan ataques contra 38 subestaciones eléctricas desde el 24 de septiembre",
+      "summary": "Un update del 4 de octubre reporta ataques ucranianos contra 14 subestaciones en Donetsk, 6 en Zaporizhzhia, 17 en Crimea y 1 en Kherson, con restricciones eléctricas asociadas en Crimea.",
+      "detail": "El reporte describe una campaña de ataques de alcance intermedio contra infraestructura energética en territorios ocupados. Es un evento físico/ciber-físico de contexto OT, no un ciberataque. Se incluye por su impacto directo sobre disponibilidad, continuidad eléctrica y dependencias de agua.",
+      "impact": "Restricciones de energía en Crimea y efectos aguas abajo sobre infraestructura dependiente de electricidad, incluida la operación de bombeo de agua.",
+      "lesson": "La resiliencia OT debe contemplar pérdida de subestaciones, energía externa y telecomunicaciones: generación de respaldo, repuestos, operación degradada y dependencias cruzadas energía-agua.",
+      "source_name": "Critical Threats Project / ISW",
+      "source_url": "https://www.criticalthreats.org/analysis/russian-offensive-campaign-assessment-october-4-2026",
+      "tags": [
+        "ukraine",
+        "energy",
+        "substations",
+        "cyber-physical",
+        "resilience",
+        "context-ot"
+      ]
+    },
     {
       "id": "ot-2026-10-03-electro-heat-rhysida-claim",
       "published_at": "2026-10-03T12:00:00Z",
@@ -17,7 +40,11 @@
       "lesson": "Separar siempre claims de ransomware de incidentes confirmados y buscar validación en la empresa, autoridades o fuentes periodísticas confiables.",
       "source_name": "Invaders Ransomware Tracker",
       "source_url": "https://invaders.ie/services/ransomware-tracker/victims/industry/manufacturing",
-      "tags": ["ransomware","manufacturing","claim"]
+      "tags": [
+        "ransomware",
+        "manufacturing",
+        "claim"
+      ]
     },
     {
       "id": "ot-2026-10-02-warlock-critical-infrastructure",
@@ -32,7 +59,13 @@
       "lesson": "Modelar SharePoint, identidad, VPN, PAM, jump servers y cuentas de servicio como parte de la superficie de ataque OT.",
       "source_name": "The Record",
       "source_url": "https://therecord.media/warlock-ransomware-used-in-critical-infrastructure-attacks",
-      "tags": ["ransomware","water","telecom","sharepoint","critical-infrastructure"]
+      "tags": [
+        "ransomware",
+        "water",
+        "telecom",
+        "sharepoint",
+        "critical-infrastructure"
+      ]
     },
     {
       "id": "ot-2026-08-08-poland-energy-followup",
@@ -48,7 +81,12 @@
       "lesson": "Revisar APN privados, acceso remoto de terceros, ruteo entre dispositivos industriales y separación efectiva IT/OT.",
       "source_name": "CERT Polska",
       "source_url": "https://cert.pl/en/posts/2026/08/incident-follow-up-report-energy-sector-2025/",
-      "tags": ["energy","destructive-attack","apn","ot"]
+      "tags": [
+        "energy",
+        "destructive-attack",
+        "apn",
+        "ot"
+      ]
     }
   ]
 }
