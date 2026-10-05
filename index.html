@@ -17,6 +17,12 @@
 .card h3{font-size:.96rem;line-height:1.28;margin:0 0 5px}.card p{font-size:.8rem;line-height:1.42;color:#b4c5da;margin:0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.more{display:flex;justify-content:space-between;margin-top:8px;color:var(--muted);font-size:.67rem}
 .empty{padding:38px 14px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:16px;margin-top:12px}.bottom{position:fixed;left:50%;bottom:0;transform:translateX(-50%);width:min(620px,100%);display:grid;grid-template-columns:repeat(3,1fr);gap:5px;background:rgba(7,17,31,.97);backdrop-filter:blur(16px);border-top:1px solid var(--line);padding:8px 10px max(8px,env(safe-area-inset-bottom));z-index:30}.nav{border:0;background:transparent;color:var(--muted);border-radius:13px;padding:7px 2px;font-size:.68rem;font-weight:900}.nav i{display:block;font-style:normal;font-size:1.2rem;margin-bottom:2px}.nav.active{background:#11253d;color:white}
 .sheetwrap{position:fixed;inset:0;background:rgba(0,0,0,.62);z-index:50;display:none;align-items:flex-end;justify-content:center}.sheetwrap.open{display:flex}.sheet{width:min(620px,100%);max-height:90dvh;overflow:auto;background:#0d1a2a;border:1px solid var(--line);border-radius:24px 24px 0 0;padding:17px 15px calc(18px + env(safe-area-inset-bottom))}.handle{width:46px;height:5px;background:#40566e;border-radius:999px;margin:0 auto 13px}.sheet h2{font-size:1.22rem;line-height:1.3;margin:9px 0}.sheet .sub{font-size:.75rem;color:var(--muted)}.detail{background:#091522;border:1px solid var(--line);border-radius:13px;padding:11px;margin:8px 0;color:#d2e0f2;font-size:.82rem;line-height:1.45}.sourcebtn{display:block;text-align:center;text-decoration:none;background:var(--blue);padding:12px;border-radius:13px;color:white;font-weight:900;margin-top:11px}.close{width:100%;margin-top:8px;border:1px solid var(--line);background:transparent;color:var(--muted);padding:11px;border-radius:13px;font-weight:800}
+.hidden{display:none!important}.status-contexto-ot{color:#d6c5ff;background:#261d3b}
+.newtools-rail{position:fixed;right:max(7px,calc((100vw - 620px)/2 + 7px));top:43%;z-index:26;border:1px solid #4b4578;background:#1a1b35;color:#f2ebff;border-radius:14px 0 0 14px;padding:9px 7px;box-shadow:0 10px 30px rgba(0,0,0,.35);display:flex;flex-direction:column;align-items:center;gap:5px}
+.newtools-rail span{font-size:1.05rem}.newtools-rail b{font-size:.62rem;writing-mode:vertical-rl;transform:rotate(180deg);letter-spacing:.04em}
+.newtools-panel{position:fixed;right:max(10px,calc((100vw - 620px)/2 + 10px));top:18%;z-index:45;width:min(280px,calc(100vw - 34px));max-height:58dvh;overflow:auto;background:#0c1828;border:1px solid #3b426d;border-radius:18px;padding:12px;box-shadow:0 20px 55px rgba(0,0,0,.5);display:none}
+.newtools-panel.open{display:block}.newtools-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px}.newtools-head strong{font-size:.88rem}.newtools-head button{border:0;background:#17263b;color:var(--muted);border-radius:9px;width:30px;height:30px}
+.newtool-item{width:100%;text-align:left;background:#101e31;border:1px solid var(--line);color:var(--txt);border-radius:12px;padding:9px;margin-top:7px}.newtool-item small{display:block;color:var(--cyan);font-weight:900;font-size:.62rem;margin-bottom:3px}.newtool-item span{display:block;font-size:.76rem;line-height:1.3}
 @media(min-width:520px){.app{padding-left:18px;padding-right:18px}}
 </style>
 </head>
@@ -46,6 +52,12 @@
   <button class="nav" data-page="tools"><i>🛰️</i>Herramientas</button>
 </nav>
 
+<button id="newToolsRail" class="newtools-rail hidden" aria-label="Abrir nuevas herramientas OT"><span>✨</span><b>Nuevas OT</b></button>
+<aside id="newToolsPanel" class="newtools-panel" aria-label="Nuevas herramientas OT">
+  <div class="newtools-head"><strong>✨ Nuevas herramientas OT</strong><button id="closeNewTools" aria-label="Cerrar">×</button></div>
+  <div id="newToolsList"></div>
+</aside>
+
 <div id="sheetWrap" class="sheetwrap"><div class="sheet"><div class="handle"></div><div id="sheetBody"></div><button id="closeSheet" class="close">Cerrar</button></div></div>
 
 <script>
@@ -60,7 +72,7 @@ let currentPage='ot', currentHours=168, feedCache={};
 function safeDate(s){const d=new Date(s);return Number.isNaN(d.getTime())?null:d}
 function fmtDate(d){return new Intl.DateTimeFormat('es-MX',{day:'2-digit',month:'short',year:'numeric'}).format(d).replace('.','')}
 function fmtTime(item,d){if(item.time_precision==='date'||item.time_precision==='month')return item.time_precision==='month'?'Mes publicado':'Fecha publicada';return new Intl.DateTimeFormat('es-MX',{hour:'2-digit',minute:'2-digit'}).format(d)}
-function statusClass(s){return 'status-'+String(s||'reportado').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'')}
+function statusClass(s){return 'status-'+String(s||'reportado').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')}
 function withinWindow(item){
  const d=safeDate(item.published_at);if(!d)return false;
  if(currentHours>100000)return true;
@@ -77,6 +89,7 @@ async function render(){
  const timeline=document.getElementById('timeline');timeline.innerHTML='<div class="empty">Cargando…</div>';
  try{
   const feed=await loadFeed(currentPage);
+  updateNewToolsMenu(feed);
   const items=[...(feed.items||[])].filter(withinWindow).sort((a,b)=>new Date(b.published_at)-new Date(a.published_at));
   document.getElementById('counter').textContent=items.length+' noticias';
   document.getElementById('updated').textContent='Feed '+new Date(feed.generated_at).toLocaleString('es-MX',{day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'});
@@ -99,6 +112,22 @@ async function render(){
   setupScrollDate();
  }catch(e){timeline.innerHTML='<div class="empty">Error cargando el feed. '+e.message+'</div>'}
 }
+function updateNewToolsMenu(feed){
+ const rail=document.getElementById('newToolsRail'),panel=document.getElementById('newToolsPanel'),list=document.getElementById('newToolsList');
+ if(currentPage!=='tools'){rail.classList.add('hidden');panel.classList.remove('open');return}
+ rail.classList.remove('hidden');
+ const rows=[...(feed.items||[])].filter(x=>x.type==='NUEVA HERRAMIENTA'||x.type==='NUEVA CAPACIDAD').sort((a,b)=>new Date(b.published_at)-new Date(a.published_at)).slice(0,5);
+ list.innerHTML='';
+ for(const item of rows){
+  const b=document.createElement('button');b.className='newtool-item';b.type='button';
+  b.innerHTML='<small>'+((item.vendor||'OT')+' · '+(item.type||'NOVEDAD'))+'</small><span>'+item.title+'</span>';
+  b.onclick=()=>{panel.classList.remove('open');openSheet(item,safeDate(item.published_at))};list.appendChild(b);
+ }
+ if(!rows.length)list.innerHTML='<div class="empty">Sin herramientas nuevas todavía.</div>';
+}
+document.getElementById('newToolsRail').onclick=()=>document.getElementById('newToolsPanel').classList.toggle('open');
+document.getElementById('closeNewTools').onclick=()=>document.getElementById('newToolsPanel').classList.remove('open');
+
 function makeCard(item){
  const d=safeDate(item.published_at);const b=document.createElement('button');b.type='button';b.className='card';
  const lead=currentPage==='tools'
@@ -126,7 +155,7 @@ function setupScrollDate(){
 }
 function closeSheet(){document.getElementById('sheetWrap').classList.remove('open')}
 document.getElementById('closeSheet').onclick=closeSheet;document.getElementById('sheetWrap').addEventListener('click',e=>{if(e.target.id==='sheetWrap')closeSheet()});
-document.querySelectorAll('.nav').forEach(b=>b.onclick=()=>{currentPage=b.dataset.page;document.querySelectorAll('.nav').forEach(x=>x.classList.toggle('active',x===b));scrollTo(0,0);render()});
+document.querySelectorAll('.nav').forEach(b=>b.onclick=()=>{currentPage=b.dataset.page;document.getElementById('newToolsPanel').classList.remove('open');document.querySelectorAll('.nav').forEach(x=>x.classList.toggle('active',x===b));scrollTo(0,0);render()});
 document.querySelectorAll('.range button').forEach(b=>b.onclick=()=>{currentHours=+b.dataset.hours;document.querySelectorAll('.range button').forEach(x=>x.classList.toggle('active',x===b));scrollTo(0,0);render()});
 render();
 </script>
