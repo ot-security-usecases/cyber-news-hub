@@ -1,0 +1,68 @@
+{
+  "feed": "it",
+  "title": "IT",
+  "generated_at": "2026-10-05T05:22:12Z",
+  "items": [
+    {
+      "id": "it-2026-10-04-citrix-netscaler-zero-day",
+      "published_at": "2026-10-04T17:58:00-04:00",
+      "status": "CONFIRMADO",
+      "sector": "Edge / Remote Access",
+      "region": "Global",
+      "title": "Citrix corrige NetScaler zero-day explotado en ataques",
+      "summary": "Citrix publicó actualizaciones de emergencia para CVE-2026-88779 en NetScaler, con explotación zero-day reportada.",
+      "detail": "La vulnerabilidad afecta infraestructura de borde de alto valor. Investigadores también analizan si el impacto puede ir más allá de denegación de servicio.",
+      "impact": "Equipos perimetrales comprometidos pueden facilitar acceso inicial o afectar disponibilidad de acceso remoto.",
+      "lesson": "Priorizar equipos Internet-facing, revisar configuración SAML, parchear y buscar indicadores de compromiso.",
+      "source_name": "BleepingComputer",
+      "source_url": "https://www.bleepingcomputer.com/news/security/citrix-patches-netscaler-saml-zero-day-exploited-in-attacks/",
+      "tags": ["citrix","netscaler","zero-day","edge"]
+    },
+    {
+      "id": "it-2026-10-03-dtu-iam-breach",
+      "published_at": "2026-10-03T10:35:00-04:00",
+      "status": "CONFIRMADO",
+      "sector": "Identidad / IAM",
+      "region": "Dinamarca",
+      "title": "DTU informa brecha en su sistema central de identidad",
+      "summary": "La Technical University of Denmark informó que datos de hasta 200,000 usuarios podrían haber quedado expuestos tras acceso a su sistema IAM.",
+      "detail": "Atacantes accedieron a DTUBasen y descargaron una gran cantidad de información, poniendo el foco en la concentración de riesgo de las plataformas de identidad.",
+      "impact": "Exposición de datos e identidades con potencial para abuso de cuentas y sesiones.",
+      "lesson": "Priorizar MFA resistente a phishing, revisión de sesiones/tokens, rotación de secretos y logging detallado de IAM.",
+      "source_name": "BleepingComputer",
+      "source_url": "https://www.bleepingcomputer.com/news/security/danish-university-dtu-breach-exposes-data-of-up-to-200-000-people/",
+      "tags": ["iam","identity","breach"]
+    },
+    {
+      "id": "it-2026-10-02-frontline-third-party-breach",
+      "published_at": "2026-10-02T15:01:00-04:00",
+      "status": "CONFIRMADO",
+      "sector": "Supply Chain / SaaS",
+      "region": "Estados Unidos",
+      "title": "Frontline Education: software de terceros habilitó acceso no autorizado",
+      "summary": "Frontline Education notificó una brecha tras explotación de una vulnerabilidad en software de terceros que expuso datos de empleados.",
+      "detail": "El incidente demuestra cómo una dependencia tecnológica puede abrir la puerta a múltiples clientes y entornos.",
+      "impact": "Exposición de información sensible y riesgo de downstream compromise.",
+      "lesson": "Incluir terceros en el modelo de riesgo, exigir SLA de parches y registrar integraciones críticas.",
+      "source_name": "BleepingComputer",
+      "source_url": "https://www.bleepingcomputer.com/news/security/frontline-education-data-breach-impacts-school-district-employees/",
+      "tags": ["supply-chain","third-party","breach"]
+    },
+    {
+      "id": "it-2026-10-02-vicksburg-ransomware",
+      "published_at": "2026-10-02T12:00:00-05:00",
+      "time_precision": "date",
+      "status": "CONFIRMADO",
+      "sector": "Gobierno / Servicios",
+      "region": "Estados Unidos",
+      "title": "Vicksburg desconecta sistemas tras incidente de ransomware",
+      "summary": "La ciudad de Vicksburg informó que un ataque de ransomware provocó el apagado temporal de sistemas y afectó pagos de servicios públicos.",
+      "detail": "Los servicios de emergencia no se vieron afectados, pero el incidente degradó sistemas municipales y pagos.",
+      "impact": "Interrupción de servicios administrativos y operativos de soporte.",
+      "lesson": "Diseñar recuperación offline y procedimientos de operación degradada para funciones esenciales.",
+      "source_name": "The Record",
+      "source_url": "https://therecord.media/vicksburg-mississippi-government-ransomware-attack",
+      "tags": ["ransomware","government","services"]
+    }
+  ]
+}
