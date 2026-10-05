@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#07111f">
+<title>OT Cyber Radar</title>
+<style>
+:root{--bg:#07111f;--panel:#0d1b2c;--line:#223b5a;--txt:#f4f7ff;--muted:#91a7c4;--blue:#558cff;--cyan:#36c9f4;--green:#56d5a3;--amber:#ffca66;--red:#ff7180;--purple:#a784ff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:linear-gradient(180deg,#06101d,#091828 55%,#06101d);color:var(--txt);font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif}button,input{font:inherit}a{color:inherit}
+.app{max-width:620px;margin:auto;padding:12px 12px 100px;min-height:100dvh}.header{padding:4px 2px 10px}.header h1{margin:0;font-size:1.45rem}.header p{margin:3px 0 0;color:var(--muted);font-size:.78rem}
+.controls{position:sticky;top:0;z-index:20;background:rgba(7,17,31,.96);backdrop-filter:blur(14px);padding:7px 0 8px}.range{display:flex;gap:6px;overflow:auto;scrollbar-width:none}.range::-webkit-scrollbar{display:none}.range button{border:1px solid var(--line);background:#0a1727;color:var(--muted);border-radius:999px;padding:7px 10px;font-size:.7rem;font-weight:800;white-space:nowrap}.range button.active{color:var(--cyan);border-color:#31567a;background:#0c2237}
+.current-date{margin-top:8px;display:flex;align-items:center;justify-content:space-between;border:1px solid #2a4566;background:#102039;border-radius:13px;padding:10px 12px;box-shadow:0 8px 25px rgba(0,0,0,.25)}.current-date small{color:var(--muted);font-size:.65rem;font-weight:900;letter-spacing:.07em}.current-date strong{font-size:.95rem}.counter{font-size:.68rem;color:var(--muted);text-align:right}
+.section-label{display:flex;justify-content:space-between;align-items:end;margin:13px 2px 3px}.section-label h2{font-size:1rem;margin:0}.section-label span{font-size:.69rem;color:var(--muted)}.status-note{margin:8px 0 2px;border:1px dashed #304b69;border-radius:13px;padding:10px;color:#9fb2cb;font-size:.73rem;line-height:1.4}
+.timeline{padding-top:2px}.date-group{scroll-margin-top:128px}.date-separator{position:sticky;top:116px;z-index:8;display:inline-block;background:#07111f;color:#dce8f8;font-weight:900;font-size:.82rem;padding:10px 4px 7px;margin-top:3px}.date-separator:after{content:"";display:inline-block;width:34px;height:1px;background:#35516f;vertical-align:middle;margin-left:9px}.feed{display:grid;gap:8px}
+.card{width:100%;text-align:left;color:var(--txt);background:var(--panel);border:1px solid var(--line);border-radius:17px;padding:12px}.meta{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-bottom:6px}.time{font-size:.68rem;color:var(--muted)}.badge{font-size:.59rem;font-weight:900;border:1px solid #2a435f;border-radius:999px;padding:4px 6px}.status-confirmado{color:var(--green);background:#0e2924}.status-reportado{color:#8bb8ff;background:#102644}.status-claim{color:var(--amber);background:#302510}.sector{font-size:.62rem;color:var(--cyan);font-weight:900}.tooltype{font-size:.59rem;font-weight:900;border:1px solid #3a4168;border-radius:999px;padding:4px 6px;color:#d7c8ff;background:#211b39}
+.card h3{font-size:.96rem;line-height:1.28;margin:0 0 5px}.card p{font-size:.8rem;line-height:1.42;color:#b4c5da;margin:0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.more{display:flex;justify-content:space-between;margin-top:8px;color:var(--muted);font-size:.67rem}
+.empty{padding:38px 14px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:16px;margin-top:12px}.bottom{position:fixed;left:50%;bottom:0;transform:translateX(-50%);width:min(620px,100%);display:grid;grid-template-columns:repeat(3,1fr);gap:5px;background:rgba(7,17,31,.97);backdrop-filter:blur(16px);border-top:1px solid var(--line);padding:8px 10px max(8px,env(safe-area-inset-bottom));z-index:30}.nav{border:0;background:transparent;color:var(--muted);border-radius:13px;padding:7px 2px;font-size:.68rem;font-weight:900}.nav i{display:block;font-style:normal;font-size:1.2rem;margin-bottom:2px}.nav.active{background:#11253d;color:white}
+.sheetwrap{position:fixed;inset:0;background:rgba(0,0,0,.62);z-index:50;display:none;align-items:flex-end;justify-content:center}.sheetwrap.open{display:flex}.sheet{width:min(620px,100%);max-height:90dvh;overflow:auto;background:#0d1a2a;border:1px solid var(--line);border-radius:24px 24px 0 0;padding:17px 15px calc(18px + env(safe-area-inset-bottom))}.handle{width:46px;height:5px;background:#40566e;border-radius:999px;margin:0 auto 13px}.sheet h2{font-size:1.22rem;line-height:1.3;margin:9px 0}.sheet .sub{font-size:.75rem;color:var(--muted)}.detail{background:#091522;border:1px solid var(--line);border-radius:13px;padding:11px;margin:8px 0;color:#d2e0f2;font-size:.82rem;line-height:1.45}.sourcebtn{display:block;text-align:center;text-decoration:none;background:var(--blue);padding:12px;border-radius:13px;color:white;font-weight:900;margin-top:11px}.close{width:100%;margin-top:8px;border:1px solid var(--line);background:transparent;color:var(--muted);padding:11px;border-radius:13px;font-weight:800}
+@media(min-width:520px){.app{padding-left:18px;padding-right:18px}}
+</style>
+</head>
+<body>
+<div class="app">
+<header class="header"><h1 id="title">OT / IoT / IIoT</h1><p id="subtitle">Incidentes industriales y campañas con impacto operacional</p></header>
+<div class="controls">
+  <div class="range">
+    <button data-hours="24">24 h</button>
+    <button class="active" data-hours="168">7 días</button>
+    <button data-hours="720">30 días</button>
+    <button data-hours="999999">Todo</button>
+  </div>
+  <div class="current-date">
+    <div><small>ESTÁS VIENDO</small><br><strong id="currentDate">—</strong></div>
+    <div class="counter"><span id="counter">—</span><br><span id="updated">—</span></div>
+  </div>
+</div>
+<div id="statusNote" class="status-note"></div>
+<div class="section-label"><h2 id="sectionName">Historial OT / IIoT</h2><span>Desliza hacia abajo</span></div>
+<main id="timeline" class="timeline"></main>
+</div>
+
+<nav class="bottom">
+  <button class="nav active" data-page="ot"><i>🏭</i>OT / IIoT</button>
+  <button class="nav" data-page="it"><i>💻</i>IT</button>
+  <button class="nav" data-page="tools"><i>🛰️</i>Herramientas</button>
+</nav>
+
+<div id="sheetWrap" class="sheetwrap"><div class="sheet"><div class="handle"></div><div id="sheetBody"></div><button id="closeSheet" class="close">Cerrar</button></div></div>
+
+<script>
+const PATHS={ot:'data/ot.json',it:'data/it.json',tools:'data/tools.json'};
+const COPY={
+ ot:{title:'OT / IoT / IIoT',subtitle:'Incidentes industriales y campañas con impacto operacional',section:'Historial OT / IIoT'},
+ it:{title:'IT',subtitle:'Ataques, brechas, ransomware, identidad y supply chain',section:'Historial IT'},
+ tools:{title:'Herramientas OT',subtitle:'Releases, integraciones, adquisiciones, compliance y nuevas capacidades',section:'Historial de herramientas'}
+};
+let currentPage='ot', currentHours=168, feedCache={};
+
+function safeDate(s){const d=new Date(s);return Number.isNaN(d.getTime())?null:d}
+function fmtDate(d){return new Intl.DateTimeFormat('es-MX',{day:'2-digit',month:'short',year:'numeric'}).format(d).replace('.','')}
+function fmtTime(item,d){if(item.time_precision==='date'||item.time_precision==='month')return item.time_precision==='month'?'Mes publicado':'Fecha publicada';return new Intl.DateTimeFormat('es-MX',{hour:'2-digit',minute:'2-digit'}).format(d)}
+function statusClass(s){return 'status-'+String(s||'reportado').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'')}
+function withinWindow(item){
+ const d=safeDate(item.published_at);if(!d)return false;
+ if(currentHours>100000)return true;
+ return (Date.now()-d.getTime()) <= currentHours*3600000;
+}
+async function loadFeed(page){
+ if(feedCache[page])return feedCache[page];
+ const r=await fetch(PATHS[page]+'?v='+Date.now(),{cache:'no-store'});
+ if(!r.ok)throw new Error('No se pudo cargar '+PATHS[page]);
+ const j=await r.json();feedCache[page]=j;return j;
+}
+async function render(){
+ const copy=COPY[currentPage];document.getElementById('title').textContent=copy.title;document.getElementById('subtitle').textContent=copy.subtitle;document.getElementById('sectionName').textContent=copy.section;
+ const timeline=document.getElementById('timeline');timeline.innerHTML='<div class="empty">Cargando…</div>';
+ try{
+  const feed=await loadFeed(currentPage);
+  const items=[...(feed.items||[])].filter(withinWindow).sort((a,b)=>new Date(b.published_at)-new Date(a.published_at));
+  document.getElementById('counter').textContent=items.length+' noticias';
+  document.getElementById('updated').textContent='Feed '+new Date(feed.generated_at).toLocaleString('es-MX',{day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'});
+  const note=document.getElementById('statusNote');
+  if(currentPage==='ot')note.innerHTML='<b>Regla OT:</b> incidentes/campañas primero. Si no hay casos reales en 24 h, no se rellena con CVE.';
+  else if(currentPage==='tools')note.innerHTML='<b>OT Tool Watch:</b> solo novedades de producto con fuente oficial cuando exista: releases, integraciones, adquisiciones, compliance y nuevas capacidades.';
+  else note.innerHTML='<b>Regla IT:</b> ataques, brechas o campañas con impacto real; prioriza fuentes primarias y medios especializados.';
+  if(!items.length){timeline.innerHTML='<div class="empty">No hay noticias válidas en esta ventana. Prueba 7 días, 30 días o Todo.</div>';document.getElementById('currentDate').textContent='Sin datos';return}
+  const groups=new Map();
+  for(const item of items){const d=safeDate(item.published_at);const key=fmtDate(d);if(!groups.has(key))groups.set(key,[]);groups.get(key).push(item)}
+  timeline.innerHTML='';
+  for(const [date,rows] of groups){
+    const section=document.createElement('section');section.className='date-group';section.dataset.date=date;
+    section.innerHTML=`<div class="date-separator">${date}</div><div class="feed"></div>`;
+    const box=section.querySelector('.feed');
+    for(const item of rows)box.appendChild(makeCard(item));
+    timeline.appendChild(section);
+  }
+  document.getElementById('currentDate').textContent=groups.keys().next().value;
+  setupScrollDate();
+ }catch(e){timeline.innerHTML='<div class="empty">Error cargando el feed. '+e.message+'</div>'}
+}
+function makeCard(item){
+ const d=safeDate(item.published_at);const b=document.createElement('button');b.type='button';b.className='card';
+ const lead=currentPage==='tools'
+  ? `<span class="tooltype">${item.type||'NOVEDAD'}</span><span class="sector">${item.vendor||''} · ${item.area||''}</span>`
+  : `<span class="badge ${statusClass(item.status)}">${item.status||'REPORTADO'}</span><span class="sector">${item.sector||''}</span>`;
+ b.innerHTML=`<div class="meta"><span class="time">${fmtTime(item,d)}</span>${lead}</div><h3>${item.title}</h3><p>${item.summary}</p><div class="more"><span>Toca para profundizar</span><b>›</b></div>`;
+ b.onclick=()=>openSheet(item,d);return b;
+}
+function openSheet(item,d){
+ const lead=currentPage==='tools'
+  ? `<div class="meta"><span class="tooltype">${item.type||'NOVEDAD'}</span><span class="sector">${item.vendor||''} · ${item.area||''}</span></div>`
+  : `<div class="meta"><span class="badge ${statusClass(item.status)}">${item.status||'REPORTADO'}</span><span class="sector">${item.sector||''}</span></div>`;
+ let detail='';
+ if(currentPage==='tools'){
+  detail=`<div class="detail"><b>Qué cambió</b><br>${item.what_changed||item.detail||''}</div><div class="detail"><b>Por qué importa para OT</b><br>${item.why_ot||''}</div><div class="detail"><b>Dónde encaja</b><br>${item.fit||''}</div>`;
+ }else{
+  detail=`<div class="detail">${item.detail||''}</div><div class="detail"><b>Impacto</b><br>${item.impact||'No publicado.'}</div><div class="detail"><b>Lección</b><br>${item.lesson||'—'}</div>`;
+ }
+ document.getElementById('sheetBody').innerHTML=`${lead}<h2>${item.title}</h2><div class="sub">${fmtDate(d)} · ${fmtTime(item,d)}${item.region?' · '+item.region:''}</div><p>${item.summary}</p>${detail}<div class="detail"><b>Fuente</b><br>${item.source_name||'Fuente original'}</div><a class="sourcebtn" href="${item.source_url}" target="_blank" rel="noopener noreferrer">Abrir fuente original ↗</a>`;
+ document.getElementById('sheetWrap').classList.add('open');
+}
+function setupScrollDate(){
+ const groups=[...document.querySelectorAll('.date-group')];
+ window.onscroll=()=>{let chosen=groups[0];for(const g of groups)if(g.getBoundingClientRect().top<=155)chosen=g;if(chosen)document.getElementById('currentDate').textContent=chosen.dataset.date}
+}
+function closeSheet(){document.getElementById('sheetWrap').classList.remove('open')}
+document.getElementById('closeSheet').onclick=closeSheet;document.getElementById('sheetWrap').addEventListener('click',e=>{if(e.target.id==='sheetWrap')closeSheet()});
+document.querySelectorAll('.nav').forEach(b=>b.onclick=()=>{currentPage=b.dataset.page;document.querySelectorAll('.nav').forEach(x=>x.classList.toggle('active',x===b));scrollTo(0,0);render()});
+document.querySelectorAll('.range button').forEach(b=>b.onclick=()=>{currentHours=+b.dataset.hours;document.querySelectorAll('.range button').forEach(x=>x.classList.toggle('active',x===b));scrollTo(0,0);render()});
+render();
+</script>
+</body></html>
