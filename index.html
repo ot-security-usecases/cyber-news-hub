@@ -96,10 +96,23 @@ async function render(){
   const scanCount=feed.scan&&feed.scan.domains_checked_count?` · ${feed.scan.domains_checked_count} sitios`:'';
   document.getElementById('updated').textContent='Feed '+new Date(feed.generated_at).toLocaleString('es-MX',{day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'})+scanCount;
   const note=document.getElementById('statusNote');
-  if(currentPage==='ot')note.innerHTML='<b>Regla OT:</b> incidentes/campañas primero. Si no hay casos reales en 24 h, no se rellena con CVE. Cada actualización exige revisar <b>20+ sitios distintos</b>.';
-  else if(currentPage==='tools')note.innerHTML='<b>OT Tool Watch:</b> releases, integraciones, adquisiciones, compliance y nuevas capacidades. Cada actualización exige revisar <b>20+ sitios/vendors</b>.';
-  else note.innerHTML='<b>Regla IT:</b> ataques, brechas o campañas con impacto real. Cada actualización exige revisar <b>20+ sitios distintos</b>.';
-  if(!items.length){timeline.innerHTML='<div class="empty">No hay noticias válidas en esta ventana. Prueba 7 días, 30 días o Todo.</div>';document.getElementById('currentDate').textContent='Sin datos';return}
+  const last24=[...(feed.items||[])].filter(item=>{
+    const d=safeDate(item.published_at);return d && (Date.now()-d.getTime())<=24*3600000;
+  });
+  const scanNoRelevant=feed.scan&&feed.scan.status==='NO_RELEVANT';
+  const noRelevantToday=scanNoRelevant || last24.length===0;
+  let rule='';
+  if(currentPage==='ot')rule='<b>Regla OT:</b> incidentes/campañas primero. Si no hay casos reales en 24 h, no se rellena con CVE. Cada actualización exige revisar <b>20+ sitios distintos</b>.';
+  else if(currentPage==='tools')rule='<b>OT Tool Watch:</b> releases, integraciones, adquisiciones, compliance y nuevas capacidades. Cada actualización exige revisar <b>30+ sitios/vendors</b>.';
+  else rule='<b>Regla IT:</b> ataques, brechas o campañas con impacto real. Cada actualización exige revisar <b>20+ sitios distintos</b>.';
+  note.innerHTML=noRelevantToday
+    ? '<b>Sin información relevante en el día.</b> La búsqueda y correlación de las últimas 24 h terminó sin hallazgos publicables. '+rule
+    : rule;
+  if(!items.length){
+    timeline.innerHTML='<div class="empty">'+(currentHours===24?'Sin información relevante en el día.':'No hay noticias válidas en esta ventana. Prueba 7 días, 30 días o Todo.')+'</div>';
+    document.getElementById('currentDate').textContent=currentHours===24?'Sin novedades':'Sin datos';
+    return
+  }
   const groups=new Map();
   for(const item of items){const d=safeDate(item.published_at);const key=fmtDate(d);if(!groups.has(key))groups.set(key,[]);groups.get(key).push(item)}
   timeline.innerHTML='';
