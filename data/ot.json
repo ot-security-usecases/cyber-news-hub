@@ -1,0 +1,54 @@
+{
+  "feed": "ot",
+  "title": "OT / IoT / IIoT",
+  "generated_at": "2026-10-05T05:22:12Z",
+  "items": [
+    {
+      "id": "ot-2026-10-03-electro-heat-rhysida-claim",
+      "published_at": "2026-10-03T12:00:00Z",
+      "time_precision": "date",
+      "status": "CLAIM",
+      "sector": "Manufactura",
+      "region": "Suecia",
+      "title": "Electro Heat Sweden aparece en un leak site atribuido a Rhysida",
+      "summary": "Un tracker de ransomware registra a Electro Heat Sweden AB como víctima atribuida a Rhysida. Debe tratarse como claim hasta confirmación independiente.",
+      "detail": "El registro es útil como señal temprana para monitoreo de amenazas industriales, pero no demuestra por sí solo acceso, cifrado, exfiltración ni impacto operacional.",
+      "impact": "Pendiente de validación pública.",
+      "lesson": "Separar siempre claims de ransomware de incidentes confirmados y buscar validación en la empresa, autoridades o fuentes periodísticas confiables.",
+      "source_name": "Invaders Ransomware Tracker",
+      "source_url": "https://invaders.ie/services/ransomware-tracker/victims/industry/manufacturing",
+      "tags": ["ransomware","manufacturing","claim"]
+    },
+    {
+      "id": "ot-2026-10-02-warlock-critical-infrastructure",
+      "published_at": "2026-10-02T14:33:00-04:00",
+      "status": "REPORTADO",
+      "sector": "Agua / Telecom / Infraestructura crítica",
+      "region": "Portugal y países hispanohablantes",
+      "title": "Warlock ransomware ataca organizaciones de infraestructura crítica vía SharePoint",
+      "summary": "Warlock fue reportado atacando una utility de agua, un operador de telecomunicaciones, gobierno regional y una universidad usando vulnerabilidades de SharePoint como acceso inicial.",
+      "detail": "El caso ilustra una ruta IT→OT/infraestructura crítica: una aplicación corporativa expuesta puede convertirse en el punto de entrada hacia una organización con procesos esenciales.",
+      "impact": "Riesgo de interrupción de servicios críticos, movimiento lateral y afectación a identidad y sistemas compartidos.",
+      "lesson": "Modelar SharePoint, identidad, VPN, PAM, jump servers y cuentas de servicio como parte de la superficie de ataque OT.",
+      "source_name": "The Record",
+      "source_url": "https://therecord.media/warlock-ransomware-used-in-critical-infrastructure-attacks",
+      "tags": ["ransomware","water","telecom","sharepoint","critical-infrastructure"]
+    },
+    {
+      "id": "ot-2026-08-08-poland-energy-followup",
+      "published_at": "2026-08-08T12:00:00+02:00",
+      "time_precision": "date",
+      "status": "CONFIRMADO",
+      "sector": "Energía",
+      "region": "Polonia",
+      "title": "CERT Polska amplía investigación del ataque destructivo al sector energético",
+      "summary": "CERT Polska documentó ataques coordinados contra instalaciones eólicas/solares y una planta CHP, además de un vector no observado previamente mediante APN privado.",
+      "detail": "El informe complementario sobre el incidente del 29 de diciembre de 2025 describe una operación destructiva compleja y una segunda planta CHP afectada.",
+      "impact": "Interrupción temporal del proceso de cogeneración y riesgo directo para continuidad de energía y calefacción.",
+      "lesson": "Revisar APN privados, acceso remoto de terceros, ruteo entre dispositivos industriales y separación efectiva IT/OT.",
+      "source_name": "CERT Polska",
+      "source_url": "https://cert.pl/en/posts/2026/08/incident-follow-up-report-energy-sector-2025/",
+      "tags": ["energy","destructive-attack","apn","ot"]
+    }
+  ]
+}
