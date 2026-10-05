@@ -1,7 +1,7 @@
 {
   "feed": "tools",
   "title": "Herramientas OT",
-  "generated_at": "2026-10-05T05:22:12Z",
+  "generated_at": "2026-10-05T05:59:01.291Z",
   "items": [
     {
       "id": "tools-2026-09-29-beyondtrust-bips-26-3",
@@ -17,7 +17,12 @@
       "fit": "PAM, acceso remoto privilegiado, cuentas compartidas de mantenimiento.",
       "source_name": "BeyondTrust Docs",
       "source_url": "https://docs.beyondtrust.com/bips/changelog/beyondinsight-and-password-safe-26-3-release-notes",
-      "tags": ["beyondtrust","sra","pam","remote-access"]
+      "tags": [
+        "beyondtrust",
+        "sra",
+        "pam",
+        "remote-access"
+      ]
     },
     {
       "id": "tools-2026-09-21-dragos-acquires-runzero-netrise",
@@ -32,7 +37,12 @@
       "fit": "Asset visibility, exposure management, IoT/xOT y software supply chain.",
       "source_name": "Dragos",
       "source_url": "https://www.dragos.com/resources/press-release/dragos-acquires-netrise-and-runzero",
-      "tags": ["dragos","runzero","netrise","xot"]
+      "tags": [
+        "dragos",
+        "runzero",
+        "netrise",
+        "xot"
+      ]
     },
     {
       "id": "tools-2026-09-16-nozomi-compass",
@@ -48,7 +58,12 @@
       "fit": "Asset management OT, change governance, compliance y remediación.",
       "source_name": "Nozomi Networks",
       "source_url": "https://www.nozominetworks.com/press-release/nozomi-networks-introduces-nozomi-compass-to-modernize-the-everyday-work-of-ot-asset-and-service-management",
-      "tags": ["nozomi","compass","asset-management","compliance"]
+      "tags": [
+        "nozomi",
+        "compass",
+        "asset-management",
+        "compliance"
+      ]
     },
     {
       "id": "tools-2026-09-02-txone-vedgeips-pro",
@@ -64,7 +79,12 @@
       "fit": "IPS OT virtual, segmentación, virtual patching y virtual infrastructure.",
       "source_name": "TXOne Networks",
       "source_url": "https://www.txone.com/news/txone-ai-edge-launch-vedgeips-pro-semicon-tw-2026/",
-      "tags": ["txone","vedgeips","ips","virtual-ot"]
+      "tags": [
+        "txone",
+        "vedgeips",
+        "ips",
+        "virtual-ot"
+      ]
     },
     {
       "id": "tools-2026-07-09-cyolo-cps-segmentation",
@@ -80,23 +100,12 @@
       "fit": "SRA, Zero Trust, microsegmentation y reducción de movimiento lateral.",
       "source_name": "Cyolo",
       "source_url": "https://cyolo.io/press-releases/cps-segmentation-first-secure-connectivity-platform-for-critical-infrastructure",
-      "tags": ["cyolo","sra","segmentation","zero-trust"]
-    },
-    {
-      "id": "tools-2026-05-paloalto-octoplant-integration",
-      "published_at": "2026-05-15T12:00:00Z",
-      "time_precision": "month",
-      "type": "INTEGRACIÓN",
-      "area": "Asset / Backup / Configuration Drift",
-      "vendor": "Palo Alto Networks + Octoplant",
-      "title": "Device Security integra Octoplant Octovision",
-      "summary": "La integración cruza inventario OT con archivos de configuración, backups y resultados de jobs de Octoplant.",
-      "what_changed": "Device Security puede mostrar el archivo/configuración asociado, lock status, resultados de backups/comparaciones y drift respecto al último respaldo.",
-      "why_ot": "Une visibilidad de red con estado real del programa/configuración de PLC, HMI y robot controllers.",
-      "fit": "Asset context, configuration drift, backup visibility e inventory correlation.",
-      "source_name": "Palo Alto Networks",
-      "source_url": "https://docs.paloaltonetworks.com/iot/new-features/by-date/device-security/may-2026",
-      "tags": ["octoplant","palo-alto","backup","configuration-drift"]
+      "tags": [
+        "cyolo",
+        "sra",
+        "segmentation",
+        "zero-trust"
+      ]
     },
     {
       "id": "tools-2026-05-28-claroty-claire",
@@ -112,7 +121,143 @@
       "fit": "Asset visibility, exposure, investigación y AI-assisted operations.",
       "source_name": "Claroty",
       "source_url": "https://claroty.com/press-releases/claroty-introduces-claire-industrys-first-cps-native-ai-security-agent",
-      "tags": ["claroty","claire","ai","cps"]
+      "tags": [
+        "claroty",
+        "claire",
+        "ai",
+        "cps"
+      ]
+    },
+    {
+      "id": "tools-2026-05-paloalto-octoplant-integration",
+      "published_at": "2026-05-15T12:00:00Z",
+      "time_precision": "month",
+      "type": "INTEGRACIÓN",
+      "area": "Asset / Backup / Configuration Drift",
+      "vendor": "Palo Alto Networks + Octoplant",
+      "title": "Device Security integra Octoplant Octovision",
+      "summary": "La integración cruza inventario OT con archivos de configuración, backups y resultados de jobs de Octoplant.",
+      "what_changed": "Device Security puede mostrar el archivo/configuración asociado, lock status, resultados de backups/comparaciones y drift respecto al último respaldo.",
+      "why_ot": "Une visibilidad de red con estado real del programa/configuración de PLC, HMI y robot controllers.",
+      "fit": "Asset context, configuration drift, backup visibility e inventory correlation.",
+      "source_name": "Palo Alto Networks",
+      "source_url": "https://docs.paloaltonetworks.com/iot/new-features/by-date/device-security/may-2026",
+      "tags": [
+        "octoplant",
+        "palo-alto",
+        "backup",
+        "configuration-drift"
+      ]
+    },
+    {
+      "id": "tools-2026-04-otbase-nis2-compliance",
+      "published_at": "2026-04-15T12:00:00Z",
+      "time_precision": "month",
+      "type": "COMPLIANCE",
+      "area": "Asset Inventory / NIS2",
+      "vendor": "OTbase",
+      "title": "OTbase publica guía para NIS2 centrada en inventario OT evergreen",
+      "summary": "OTbase documenta cómo su inventario OT contextualizado, actualización diaria, CVE matching y workflows de compliance pueden apoyar obligaciones NIS2.",
+      "what_changed": "La guía 2026 formaliza el mapeo de capacidades de OTbase contra requisitos NIS2, incluyendo asset management, risk analysis, vulnerability handling y supply-chain oversight.",
+      "why_ot": "Para programas OT europeos, convierte el inventario técnico en evidencia auditable de gobernanza y riesgo, no solo discovery.",
+      "fit": "OT asset inventory, vulnerability management, compliance, NIS2.",
+      "source_name": "OTbase",
+      "source_url": "https://otbase.com/wp-content/uploads/2026/04/NIS2-Whitepaper.pdf",
+      "tags": [
+        "otbase",
+        "nis2",
+        "asset-inventory",
+        "compliance"
+      ]
+    },
+    {
+      "id": "tools-2026-03-19-kaspersky-av-comparatives-ot",
+      "published_at": "2026-03-19T12:00:00+01:00",
+      "time_precision": "date",
+      "type": "COMPLIANCE",
+      "area": "Endpoint OT / XDR",
+      "vendor": "Kaspersky Industrial CyberSecurity",
+      "title": "KICS for Nodes obtiene certificación OT de AV-Comparatives",
+      "summary": "Kaspersky informó que KICS for Nodes superó escenarios de ejecución de código no confiable en entornos OT offline sin falsos positivos.",
+      "what_changed": "AV-Comparatives certificó KICS for Nodes en pruebas OT orientadas a protección post-breach y ejecución de código en entornos desconectados.",
+      "why_ot": "Aporta evidencia independiente sobre protección de endpoints industriales donde disponibilidad, legacy y operación offline son requisitos importantes.",
+      "fit": "OT endpoint protection, XDR industrial, legacy/offline environments.",
+      "source_name": "Kaspersky",
+      "source_url": "https://www.kaspersky.es/about/press-releases/kaspersky-industrial-cybersecurity-obtiene-la-certificacion-ot-de-av-comparatives",
+      "tags": [
+        "kaspersky",
+        "kics",
+        "endpoint",
+        "av-comparatives",
+        "ot"
+      ]
     }
-  ]
+  ],
+  "watchlist": {
+    "Visibility / NDR / CPS": [
+      "Claroty",
+      "Dragos",
+      "Nozomi Networks",
+      "Armis",
+      "Forescout",
+      "Tenable OT",
+      "Microsoft Defender for IoT",
+      "Cisco Cyber Vision",
+      "Fortinet OT",
+      "Palo Alto OT Security",
+      "Kaspersky Industrial CyberSecurity"
+    ],
+    "Asset / Inventory / Config": [
+      "OTbase",
+      "Octoplant / Octovision",
+      "Verve Industrial",
+      "Honeywell OT",
+      "Siemens OT Asset capabilities"
+    ],
+    "Recovery / Resilience": [
+      "Salvador Technologies",
+      "Acronis OT use cases",
+      "Veeam OT use cases",
+      "Rubrik OT use cases",
+      "Cohesity OT use cases"
+    ],
+    "SRA / PAM": [
+      "BeyondTrust",
+      "Cyolo",
+      "Xage Security",
+      "Dispel",
+      "Secomea",
+      "TOSIBOX",
+      "WALLIX OT",
+      "Claroty Secure Access"
+    ],
+    "Network Defense / Segmentation": [
+      "TXOne Networks",
+      "Waterfall Security",
+      "Owl Cyber Defense",
+      "Belden / Hirschmann",
+      "Moxa",
+      "Phoenix Contact",
+      "Palo Alto Networks",
+      "Fortinet",
+      "Check Point"
+    ],
+    "Endpoint / USB": [
+      "TXOne Stellar / Portable Inspector",
+      "OPSWAT MetaDefender",
+      "Kaspersky KICS for Nodes / Portable Scanner"
+    ],
+    "PLC / Device Integrity": [
+      "NanoLock Security / OTOPIQ",
+      "NetRise",
+      "TXOne"
+    ],
+    "OT SOC / Threat Intel": [
+      "Dragos Intelligence",
+      "Kaspersky ICS CERT",
+      "Claroty Team82",
+      "Nozomi Threat Intelligence",
+      "Google Mandiant OT"
+    ]
+  }
 }
