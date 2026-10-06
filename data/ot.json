@@ -1,7 +1,7 @@
 {
   "feed": "ot",
   "title": "OT / IoT / IIoT",
-  "generated_at": "2026-10-05T05:38:56.323Z",
+  "generated_at": "2026-10-06T12:38:00Z",
   "items": [
     {
       "id": "ot-2026-10-04-ukraine-substations-occupied-territories",
@@ -88,5 +88,48 @@
         "ot"
       ]
     }
-  ]
+  ],
+  "scan": {
+    "window_hours": 24,
+    "domains_checked_count": 32,
+    "domains_checked": [
+      "cisa.gov",
+      "cert.pl",
+      "cert.gov.ua",
+      "sscip.gov.ua",
+      "cip.gov.ua",
+      "reuters.com",
+      "apnews.com",
+      "therecord.media",
+      "bleepingcomputer.com",
+      "securityweek.com",
+      "industrialcyber.co",
+      "cybersecuritydive.com",
+      "darkreading.com",
+      "thehackernews.com",
+      "welivesecurity.com",
+      "dragos.com",
+      "cloud.google.com",
+      "ics-cert.kaspersky.com",
+      "nozominetworks.com",
+      "claroty.com",
+      "armis.com",
+      "forescout.com",
+      "sans.org",
+      "ncsc.gov.uk",
+      "enisa.europa.eu",
+      "cert.europa.eu",
+      "unit42.paloaltonetworks.com",
+      "fortinet.com",
+      "crowdstrike.com",
+      "research.checkpoint.com",
+      "secomea.com",
+      "atns.com"
+    ],
+    "completed_at": "2026-10-06T12:38:00Z",
+    "correlation_passes": 2,
+    "new_items_count": 0,
+    "status": "NO_RELEVANT",
+    "status_message": "Sin información relevante en el día"
+  }
 }
