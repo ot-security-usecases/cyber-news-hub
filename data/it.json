@@ -1,8 +1,93 @@
 {
   "feed": "it",
   "title": "IT",
-  "generated_at": "2026-10-05T05:22:12Z",
+  "generated_at": "2026-10-06T12:38:00Z",
   "items": [
+    {
+      "id": "it-2026-10-06-asos-snowflake-extortion-report",
+      "published_at": "2026-10-06T09:52:00Z",
+      "status": "REPORTADO",
+      "sector": "Retail / Cloud Data",
+      "region": "Reino Unido",
+      "title": "ASOS investiga reportes de compromiso de su instancia Snowflake",
+      "summary": "ASOS confirmó que conoce reportes de un hackeo después de que clientes recibieran notificaciones con una demanda de extorsión que afirmaba compromiso de Snowflake.",
+      "detail": "Reuters reportó que mensajes enviados mediante la app de ASOS afirmaban que atacantes habían comprometido la instancia Snowflake del retailer. ASOS reconoció estar al tanto de los reportes, pero no confirmó el compromiso al momento de la publicación.",
+      "impact": "Riesgo potencial de exposición de datos de clientes y compromiso de sistemas vinculados con la aplicación móvil; el alcance sigue sin confirmarse.",
+      "lesson": "Tratar los data warehouses cloud como activos críticos: aplicar MFA resistente a phishing, control de sesiones, monitoreo de consultas masivas y alertas por cambios anómalos en integraciones y aplicaciones.",
+      "source_name": "Reuters",
+      "source_url": "https://www.reuters.com/business/retail-consumer/uk-online-retailer-asos-shares-drop-hack-reports-2026-10-06/",
+      "tags": [
+        "asos",
+        "snowflake",
+        "extortion",
+        "cloud",
+        "retail"
+      ]
+    },
+    {
+      "id": "it-2026-10-06-south-korea-bank-hacks-ai",
+      "published_at": "2026-10-06T02:13:00Z",
+      "status": "CONFIRMADO",
+      "sector": "Finanzas / Banca",
+      "region": "Corea del Sur",
+      "title": "Corea del Sur investiga ataques contra bancos con indicios de uso de IA",
+      "summary": "La policía investiga brechas en varios bancos surcoreanos; autoridades reportaron indicios de uso de modelos de IA y compartieron 28 IP sospechosas con el sector financiero.",
+      "detail": "Shinhan Bank, KB Kookmin Bank y otras entidades reportaron ciberataques y filtraciones de información personal. El presidente Lee Jae Myung pidió esclarecer rápidamente los hechos y minimizar daños; las autoridades aún no han detallado qué herramientas de IA se utilizaron.",
+      "impact": "Exposición de información personal de clientes y ampliación del riesgo de fraude, phishing y abuso de datos.",
+      "lesson": "Proteger también sistemas periféricos y de soporte, no solo el core bancario, y reforzar monitoreo de explotación automatizada, APIs y servicios expuestos.",
+      "source_name": "Reuters",
+      "source_url": "https://www.reuters.com/world/south-koreas-lee-says-ai-appears-have-been-used-in-bank-hacks-2026-10-06/",
+      "tags": [
+        "south-korea",
+        "banking",
+        "ai",
+        "data-breach",
+        "financial-sector"
+      ]
+    },
+    {
+      "id": "it-2026-10-06-fbi-accenture-peoplesoft-breach",
+      "published_at": "2026-10-06T00:56:00Z",
+      "status": "CONFIRMADO",
+      "sector": "Gobierno / Third Party / HR",
+      "region": "Estados Unidos",
+      "title": "FBI atribuye brecha a una falla de parcheo en plataforma administrada por un tercero",
+      "summary": "El FBI confirmó que una plataforma administrada por un tercero quedó expuesta después de que no se aplicara un parche de seguridad; Reuters identificó a Accenture y Oracle PeopleSoft.",
+      "detail": "El FBI retiró a un contratista tras determinar que el incidente se originó en una plataforma administrada por un tercero que no recibió un parche crítico. Fuentes de Reuters identificaron la plataforma como Oracle PeopleSoft y al proveedor como Accenture; ShinyHunters había atribuido su intrusión a una vulnerabilidad de PeopleSoft.",
+      "impact": "Exposición de datos sensibles de miles de empleados del FBI, incluyendo información laboral, domicilios y registros médicos.",
+      "lesson": "La gestión de vulnerabilidades de terceros debe incluir ownership explícito, SLA de parcheo, evidencia de implementación y validación independiente para plataformas críticas.",
+      "source_name": "Reuters",
+      "source_url": "https://www.reuters.com/technology/accenture-contractor-removed-fbi-following-damaging-data-breach-sources-say-2026-10-06/",
+      "tags": [
+        "fbi",
+        "accenture",
+        "peoplesoft",
+        "third-party",
+        "patching",
+        "shinyhunters"
+      ]
+    },
+    {
+      "id": "it-2026-10-05-denmark-cpr-breach",
+      "published_at": "2026-10-05T11:21:00-04:00",
+      "status": "CONFIRMADO",
+      "sector": "Gobierno / Identidad",
+      "region": "Dinamarca",
+      "title": "Brecha del registro poblacional de Dinamarca expone datos de 8.8 millones de personas",
+      "summary": "El registro central de población de Dinamarca informó una extracción masiva de datos mediante el abuso del acceso legítimo de una empresa privada.",
+      "detail": "La administración del CPR detectó actividad irregular y autoridades indicaron que el atacante abusó de acceso autorizado de un tercero y utilizó técnicas de enumeración para obtener nombres, direcciones, números CPR y otros datos.",
+      "impact": "Exposición masiva de datos personales con riesgo de fraude, suplantación y ataques dirigidos.",
+      "lesson": "Los accesos de partners a registros sensibles requieren límites de consulta, detección de enumeración, controles de volumen, monitoreo continuo y segmentación de privilegios.",
+      "source_name": "BleepingComputer",
+      "source_url": "https://www.bleepingcomputer.com/news/security/denmark-population-registry-data-breach-affects-88-million-people/",
+      "tags": [
+        "denmark",
+        "government",
+        "identity",
+        "third-party",
+        "data-breach"
+      ]
+    },
     {
       "id": "it-2026-10-04-citrix-netscaler-zero-day",
       "published_at": "2026-10-04T17:58:00-04:00",
@@ -16,7 +101,12 @@
       "lesson": "Priorizar equipos Internet-facing, revisar configuración SAML, parchear y buscar indicadores de compromiso.",
       "source_name": "BleepingComputer",
       "source_url": "https://www.bleepingcomputer.com/news/security/citrix-patches-netscaler-saml-zero-day-exploited-in-attacks/",
-      "tags": ["citrix","netscaler","zero-day","edge"]
+      "tags": [
+        "citrix",
+        "netscaler",
+        "zero-day",
+        "edge"
+      ]
     },
     {
       "id": "it-2026-10-03-dtu-iam-breach",
@@ -31,7 +121,11 @@
       "lesson": "Priorizar MFA resistente a phishing, revisión de sesiones/tokens, rotación de secretos y logging detallado de IAM.",
       "source_name": "BleepingComputer",
       "source_url": "https://www.bleepingcomputer.com/news/security/danish-university-dtu-breach-exposes-data-of-up-to-200-000-people/",
-      "tags": ["iam","identity","breach"]
+      "tags": [
+        "iam",
+        "identity",
+        "breach"
+      ]
     },
     {
       "id": "it-2026-10-02-frontline-third-party-breach",
@@ -46,7 +140,11 @@
       "lesson": "Incluir terceros en el modelo de riesgo, exigir SLA de parches y registrar integraciones críticas.",
       "source_name": "BleepingComputer",
       "source_url": "https://www.bleepingcomputer.com/news/security/frontline-education-data-breach-impacts-school-district-employees/",
-      "tags": ["supply-chain","third-party","breach"]
+      "tags": [
+        "supply-chain",
+        "third-party",
+        "breach"
+      ]
     },
     {
       "id": "it-2026-10-02-vicksburg-ransomware",
@@ -62,7 +160,52 @@
       "lesson": "Diseñar recuperación offline y procedimientos de operación degradada para funciones esenciales.",
       "source_name": "The Record",
       "source_url": "https://therecord.media/vicksburg-mississippi-government-ransomware-attack",
-      "tags": ["ransomware","government","services"]
+      "tags": [
+        "ransomware",
+        "government",
+        "services"
+      ]
     }
-  ]
+  ],
+  "scan": {
+    "window_hours": 24,
+    "domains_checked_count": 30,
+    "domains_checked": [
+      "cisa.gov",
+      "cert.europa.eu",
+      "ncsc.gov.uk",
+      "enisa.europa.eu",
+      "reuters.com",
+      "apnews.com",
+      "therecord.media",
+      "bleepingcomputer.com",
+      "securityweek.com",
+      "cybersecuritydive.com",
+      "darkreading.com",
+      "thehackernews.com",
+      "microsoft.com",
+      "cloud.google.com",
+      "unit42.paloaltonetworks.com",
+      "crowdstrike.com",
+      "kaspersky.com",
+      "welivesecurity.com",
+      "fortinet.com",
+      "rapid7.com",
+      "proofpoint.com",
+      "sentinelone.com",
+      "sophos.com",
+      "cisco.com",
+      "watchtowr.com",
+      "ae-cert.ae",
+      "tdra.gov.ae",
+      "wam.ae",
+      "gulfnews.com",
+      "khaleejtimes.com"
+    ],
+    "completed_at": "2026-10-06T12:38:00Z",
+    "correlation_passes": 2,
+    "new_items_count": 4,
+    "status": "OK",
+    "status_message": ""
+  }
 }
